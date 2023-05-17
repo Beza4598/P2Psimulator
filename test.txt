@@ -1,0 +1,235 @@
+
+=======================================================================================================================
+
+CLIENT A
+
+Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -c 'A' 127.0.0.1 1220 1299 1285
+A 127.0.0.1 1220 1299 1285
+>>> [Welcome, You are registered.]
+>>> setdir /Users/bezaamsalu/Desktop
+>>> [Successfully set /Users/bezaamsalu/Desktop/ as the directory for searching offered files.]
+>>> offer notes.txt get-pip.py CoverLetterCCE.pdf test.js test.swift
+>>> [Offer Message received by Server.]
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+[Received updated table from server]
+>>>
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+matplotlib.md   B               127.0.0.1       1290
+setup.py        C               127.0.0.1       1280
+README.md       C               127.0.0.1       1280
+FAQ.md          C               127.0.0.1       1280
+TUTORIAL.md     C               127.0.0.1       1280
+CONTRIBUTING.md C               127.0.0.1       1280
+[Received updated table from server]
+>>> request FAQ C
+>>> Invalid File Request.
+>>> request FAQ.md C
+< Connection with C established.>
+< Downloading FAQ.md...>
+< FAQ.md downloaded successfully.>
+< Connection with C closed.>
+>>> < Accepting connection request from 127.0.0.1.>
+<Transferring test.swift...>
+<test.swift Transferred successfully ... >
+<Connection with B closed.>
+
+>>> dereg A
+>>> [You are Offline. Bye.]
+
+
+CLIENT B
+
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -c 'B' 127.0.0.1 1220 1290 1295
+B 127.0.0.1 1220 1290 1295
+>>> [Welcome, You are registered.]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+>>> offer get-pip
+Error. Set a valid directory before offering files.
+>>> request get-pip.py A
+< Connection with A established.>
+< Downloading get-pip.py...>
+< get-pip.py downloaded successfully.>
+< Connection with A closed.>
+>>>
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+>>>
+>>> request get-pip.py A
+Failed to create socket or deliver registration message. Details
+'A'
+^CException ignored in: <module 'threading' from '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+KeyboardInterrupt:
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -c 'B' 127.0.0.1 1220 1290 1295
+B 127.0.0.1 1220 1290 1295
+>>> [Welcome, You are registered.]
+>>>
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+>>>
+
+
+>>> >>> ^L>>> ^CTraceback (most recent call last):
+  File "/Users/bezaamsalu/PycharmProjects/hw1-networks/FileApp.py", line 63, in <module>
+    main()
+  File "/Users/bezaamsalu/PycharmProjects/hw1-networks/FileApp.py", line 54, in main
+    client = Client(name, server_ip, server_port, udp_port, tcp_port)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bezaamsalu/PycharmProjects/hw1-networks/Client.py", line 40, in __init__
+    self.register()
+  File "/Users/bezaamsalu/PycharmProjects/hw1-networks/Client.py", line 75, in register
+    ui.start_client_ui(self)
+  File "/Users/bezaamsalu/PycharmProjects/hw1-networks/UserInterface.py", line 8, in start_client_ui
+    req = input(">>> ")
+          ^^^^^^^^^^^^^
+KeyboardInterrupt
+^CException ignored in: <module 'threading' from '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+KeyboardInterrupt:
+
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -c 'B' 127.0.0.1 1220 1290 1295
+B 127.0.0.1 1220 1290 1295
+>>> [Welcome, You are registered.]
+>>> setdir /Users/bezaamsalu/Documents
+>>> [Successfully set /Users/bezaamsalu/Documents/ as the directory for searching offered files.]
+>>>
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+>>> offer matplotlib.md
+>>> [Offer Message received by Server.]
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+matplotlib.md   B               127.0.0.1       1290
+>>>
+[Received updated table from server]
+>>>
+[Received updated table from server]
+>>>
+>>> request test.swift A
+< Connection with A established.>
+< Downloading test.swift...>
+< test.swift downloaded successfully.>
+< Connection with A closed.>
+>>> < Accepting connection request from 127.0.0.1.>
+<Transferring matplotlib.md...>
+<matplotlib.md Transferred successfully ... >
+<Connection with C closed.>
+
+[Received updated table from server]
+>>> request test.js A
+>>> Unable to request file.
+>>>
+>>>
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+matplotlib.md   B               127.0.0.1       1290
+setup.py        C               127.0.0.1       1280
+README.md       C               127.0.0.1       1280
+FAQ.md          C               127.0.0.1       1280
+TUTORIAL.md     C               127.0.0.1       1280
+CONTRIBUTING.md C               127.0.0.1       1280
+>>>
+
+CLIENT C
+
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -c 'C' 127.0.0.1 1220 1280 1291
+C 127.0.0.1 1220 1280 1291
+>>> [Welcome, You are registered.]
+>>> setdir /Users/bezaamsalu/Desktop/spotipy
+>>> [Successfully set /Users/bezaamsalu/Desktop/spotipy/ as the directory for searching offered files.]
+>>>
+[Received updated table from server]
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+>>> offer CONTRIBUTING.md TUTORIAL.md FAQ.md setup.py README.md
+>>> [Offer Message received by Server.]
+[Received updated table from server]
+>>>
+>>> list
+FILE            OWNER           IP_ADDRESS      TCP_PORT
+test.swift      A               127.0.0.1       1299
+CoverLetterCCE.pdf A               127.0.0.1       1299
+get-pip.py      A               127.0.0.1       1299
+notes.txt       A               127.0.0.1       1299
+test.js         A               127.0.0.1       1299
+matplotlib.md   B               127.0.0.1       1290
+setup.py        C               127.0.0.1       1280
+README.md       C               127.0.0.1       1280
+FAQ.md          C               127.0.0.1       1280
+TUTORIAL.md     C               127.0.0.1       1280
+CONTRIBUTING.md C               127.0.0.1       1280
+[Received updated table from server]
+>>> < Accepting connection request from 127.0.0.1.>
+<Transferring FAQ.md...>
+<FAQ.md Transferred successfully ... >
+<Connection with A closed.>
+
+>>> request matplotlib.md B
+< Connection with B established.>
+< Downloading matplotlib.md...>
+< matplotlib.md downloaded successfully.>
+< Connection with B closed.>
+>>>
+
+
+SERVER
+
+(venv) Bezas-MacBook-Pro:hw1-networks bezaamsalu$ python3 FileApp.py -s 1220
+Server started ...
+Accepting files..
+Accepting files..
+Accepting files..
+Accepting files..
